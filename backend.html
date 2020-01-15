@@ -1,0 +1,27 @@
+<html>
+<head>hello
+<title>web</title>
+</head>
+<body>
+<form action="validate.php" method="post">
+   <input type="text" name="text" id="text">
+   <input type="submit" name="submit" value="Post">
+</form>
+<script>
+  function _(elem){
+   return document.getElementById(elem);
+  }
+  function SendData(){
+   var text = _("text").value;
+   var xht = new XMLHTTPRequest();
+   xht.onreadystatechange = function(){
+      if (this.readyState == 4 && this.status == 200){
+        var x = this.responseText;
+      }
+   };
+   xht.open("POST","validate.php?text=" + str,true);
+   xht.send();
+  }
+</script>
+</body>
+</html>
